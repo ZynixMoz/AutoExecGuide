@@ -3,61 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QuickExc Guide</title>
+<title>QuickExc Customization Guide</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- PARTICLES CONTAINER -->
 <div id="particles-js"></div>
 
 <header>
-  <h1>QuickExc Guide</h1>
-  <p>Dynamic Roblox executor guide</p>
+  <h1>QuickExc Customization</h1>
+  <p>Guide to modify your QuickExc Roblox executor</p>
 </header>
 
 <main>
   <div class="card">
-    <h2>Step 1: Download Script</h2>
-    <p>Save QuickExc as <code id="scriptFileCode">QuickExc.txt</code> or <code id="scriptLuaCode">QuickExc.lua</code>.</p>
-    <button class="copy-btn" data-target="scriptFileCode">Copy TXT</button>
-    <button class="copy-btn" data-target="scriptLuaCode">Copy LUA</button>
-    <img src="images/script-file.png" alt="Script file">
+    <h2>Change the GUI Title</h2>
+    <p>Edit this line in your script to change the title of the executor:</p>
+    <pre id="titleCode">title.Text = "QuickExec"</pre>
+    <button class="copy-btn" data-target="titleCode">Copy Code</button>
   </div>
 
   <div class="card">
-    <h2>Step 2: Open Roblox Executor</h2>
-    <p>Load the script in your Roblox executor.</p>
-    <img src="images/executor.png" alt="Executor">
-  </div>
-
-  <div class="card">
-    <h2>Step 3: Using QuickExc GUI</h2>
-    <ul>
-      <li>Drag the GUI anywhere.</li>
-      <li>Hover to see animation.</li>
-      <li>Click buttons to execute scripts. Buttons with destroy=true close GUI.</li>
-      <li>Hold buttons to scale up.</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>Customization Guide</h2>
+    <h2>Add More Buttons</h2>
+    <p>Insert a new table entry in <code>scriptsList</code> to add a button:</p>
     <pre id="addButtonCode">{name = "New Script", url = "https://raw.githubusercontent.com/YourUsername/YourScript/main/newscript.lua", destroy = false}</pre>
     <button class="copy-btn" data-target="addButtonCode">Copy Code</button>
+  </div>
+
+  <div class="card">
+    <h2>Change Click Sounds</h2>
+    <p>Modify this line to use a different sound for button clicks:</p>
+    <pre id="clickSoundCode">clickSound.SoundId = "rbxassetid://6895079853"</pre>
+    <button class="copy-btn" data-target="clickSoundCode">Copy Code</button>
+  </div>
+
+  <div class="card">
+    <h2>Edit QuickExecute File Name</h2>
+    <p>Change the file name in your executor script here:</p>
+    <pre id="fileNameCode">QuickExc.txt / QuickExc.lua</pre>
+    <button class="copy-btn" data-target="fileNameCode">Copy Info</button>
   </div>
 </main>
 
 <footer>
-  <p>&copy; 2025 SkyeMoz. QuickExc Guides.</p>
+  <p>&copy; 2025 SkyeMoz. QuickExc Customization Guide.</p>
 </footer>
 
-<!-- PARTCLE JS SCRIPT -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src="script.js"></script>
 <script>
-  /* PARTICLES CONFIG */
   particlesJS("particles-js", {
     "particles": {
       "number": { "value": 80 },
@@ -68,12 +63,9 @@
       "line_linked": { "enable": true, "distance": 150, "color": "#555", "opacity": 0.4, "width": 1 },
       "move": { "enable": true, "speed": 2 }
     },
-    "interactivity": {
-      "events": { "onhover": { "enable": true, "mode": "grab" } }
-    },
+    "interactivity": { "events": { "onhover": { "enable": true, "mode": "grab" } } },
     "retina_detect": true
   });
 </script>
-
 </body>
-      </html>
+</html>
