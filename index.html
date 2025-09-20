@@ -1,79 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QuickExc Guide</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuickExc Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>QuickExc Script Guide</h1>
-    <p>Dynamic, interactive guide for QuickExc Roblox GUI</p>
-  </header>
 
-  <main>
-    <section class="collapsible">
-      <h2>Step 1: Download the Script</h2>
-      <div class="content">
-        <p>Save the QuickExc script as <code id="scriptFileCode">QuickExc.txt</code> or <code id="scriptLuaCode">QuickExc.lua</code>.</p>
-        <button class="copy-btn" data-target="scriptFileCode">Copy TXT</button>
-        <button class="copy-btn" data-target="scriptLuaCode">Copy LUA</button>
-        <img src="images/script-file.png" alt="Script file example">
-      </div>
-    </section>
+<header>
+  <h1>QuickExc Guide</h1>
+  <p>Dynamic interactive Roblox executor guide</p>
+</header>
 
-    <section class="collapsible">
-      <h2>Step 2: Open Roblox Executor</h2>
-      <div class="content">
-        <p>Open your Roblox executor, then load the script file.</p>
-        <img src="images/executor.png" alt="Executor example">
-      </div>
-    </section>
+<main>
+  <section class="card collapsible">
+    <h2>Step 1: Download Script</h2>
+    <div class="content">
+      <p>Save the QuickExc script as <code id="scriptFileCode">QuickExc.txt</code> or <code id="scriptLuaCode">QuickExc.lua</code>.</p>
+      <button class="copy-btn" data-target="scriptFileCode">Copy TXT</button>
+      <button class="copy-btn" data-target="scriptLuaCode">Copy LUA</button>
+      <img src="images/script-file.png" alt="Script file">
+    </div>
+  </section>
 
-    <section class="collapsible">
-      <h2>Step 3: Using QuickExc GUI</h2>
-      <div class="content">
-        <ul>
-          <li>Drag the GUI anywhere.</li>
-          <li>Hover to see animation.</li>
-          <li>Click buttons to execute scripts. Buttons with destroy=true close GUI.</li>
-          <li>Holding a button scales it up.</li>
-        </ul>
-      </div>
-    </section>
+  <section class="card collapsible">
+    <h2>Step 2: Open Roblox Executor</h2>
+    <div class="content">
+      <p>Load the script in your Roblox executor.</p>
+      <img src="images/executor.png" alt="Executor example">
+    </div>
+  </section>
 
-    <section class="collapsible">
-      <h2>Customization Guide</h2>
-      <div class="content">
-        <h3>Adding Buttons</h3>
-        <pre id="addButtonCode">
-{name = "New Script", url = "https://raw.githubusercontent.com/YourUsername/YourScript/main/newscript.lua", destroy = false}
-        </pre>
-        <button class="copy-btn" data-target="addButtonCode">Copy Code</button>
+  <section class="card collapsible">
+    <h2>Step 3: Using QuickExc GUI</h2>
+    <div class="content">
+      <ul>
+        <li>Drag the GUI anywhere.</li>
+        <li>Hover to see animation.</li>
+        <li>Click buttons to execute scripts. Buttons with destroy=true close GUI.</li>
+        <li>Hold buttons to scale up.</li>
+      </ul>
+    </div>
+  </section>
 
-        <h3>Changing Sounds</h3>
-        <pre id="changeSoundCode">
-clickSound.SoundId = "rbxassetid://3774415505"
-clickSound.Volume = 0.6
-        </pre>
-        <button class="copy-btn" data-target="changeSoundCode">Copy Code</button>
+  <section class="card collapsible">
+    <h2>Customization Guide</h2>
+    <div class="content">
+      <h3>Adding Buttons</h3>
+      <pre id="addButtonCode">{name = "New Script", url = "https://raw.githubusercontent.com/YourUsername/YourScript/main/newscript.lua", destroy = false}</pre>
+      <button class="copy-btn" data-target="addButtonCode">Copy Code</button>
 
-        <h3>Editing Titles / Guide Text</h3>
-        <pre id="changeTitleCode">
-title.Text = "Use buttons below to execute scripts:"
-        </pre>
-        <button class="copy-btn" data-target="changeTitleCode">Copy Code</button>
-      </div>
-    </section>
+      <h3>Changing Sounds</h3>
+      <pre id="changeSoundCode">clickSound.SoundId = "rbxassetid://3774415505"</pre>
+      <button class="copy-btn" data-target="changeSoundCode">Copy Code</button>
 
-  </main>
+      <h3>Changing Titles</h3>
+      <pre id="changeTitleCode">title.Text = "Use buttons below to execute scripts:"</pre>
+      <button class="copy-btn" data-target="changeTitleCode">Copy Code</button>
+    </div>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 SkyeMoz. QuickExc Guides.</p>
-  </footer>
+</main>
 
-  <script src="script.js"></script>
+<footer>
+  <p>&copy; 2025 SkyeMoz. QuickExc Guides.</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
-  </html>
+</html>
