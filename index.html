@@ -5,9 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>QuickExc Guide</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- PARTICLES CONTAINER -->
+<div id="particles-js"></div>
 
 <header>
   <h1>QuickExc Guide</h1>
@@ -50,6 +53,27 @@
   <p>&copy; 2025 SkyeMoz. QuickExc Guides.</p>
 </footer>
 
+<!-- PARTCLE JS SCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src="script.js"></script>
+<script>
+  /* PARTICLES CONFIG */
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 80 },
+      "color": { "value": "#888" },
+      "shape": { "type": "circle" },
+      "opacity": { "value": 0.5 },
+      "size": { "value": 3 },
+      "line_linked": { "enable": true, "distance": 150, "color": "#555", "opacity": 0.4, "width": 1 },
+      "move": { "enable": true, "speed": 2 }
+    },
+    "interactivity": {
+      "events": { "onhover": { "enable": true, "mode": "grab" } }
+    },
+    "retina_detect": true
+  });
+</script>
+
 </body>
-</html>
+      </html>
