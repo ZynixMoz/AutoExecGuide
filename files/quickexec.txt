@@ -1,0 +1,178 @@
+
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+-- Put Scripts & button name here
+local scriptsList = {
+    {name = "Voidware Hub", url = "https://raw.githubusercontent.com/VapeVoidware/VW-Add/main/nightsintheforest.lua", destroy = true},
+    {name = "Script 2", url = "https://example.com/script2.lua", destroy = false},
+    {name = "Script 3", url = "https://example.com/script3.lua", destroy = false},
+    {name = "Script 4", url = "https://example.com/script4.lua", destroy = true},
+    {name = "Script 5", url = "https://example.com/script5.lua", destroy = false},
+}
+
+local flashGui = Instance.new("ScreenGui")
+flashGui.Name = "QuickExcFlash"
+flashGui.ResetOnSpawn = false
+flashGui.IgnoreGuiInset = true
+flashGui.DisplayOrder = 1000
+flashGui.Parent = playerGui
+
+local flash = Instance.new("Frame")
+flash.Size = UDim2.new(1,0,1,0)
+flash.BackgroundTransparency = 1
+flash.BorderSizePixel = 0
+flash.ZIndex = 1000
+flash.Parent = flashGui
+
+local function playFlash(color)
+    flash.BackgroundColor3 = color
+    flash.BackgroundTransparency = 1
+    local tweenIn = TweenService:Create(flash, TweenInfo.new(0.25), {BackgroundTransparency = 0.35})
+    local tweenOut = TweenService:Create(flash, TweenInfo.new(0.25), {BackgroundTransparency = 1})
+    tweenIn:Play()
+    tweenIn.Completed:Connect(function() tweenOut:Play() end)
+end
+
+local mainGui = Instance.new("ScreenGui")
+mainGui.Name = "QuickExcGUI"
+mainGui.ResetOnSpawn = false
+mainGui.Parent = playerGui
+
+local mainFrame = Instance.new("Frame")
+mainFrame.Size = UDim2.new(0, 240, 0, 350)
+mainFrame.Position = UDim2.new(0.5, -120, 0.5, -175) -- centered
+mainFrame.BackgroundColor3 = Color3.fromRGB(25,25,25)
+mainFrame.BorderSizePixel = 0
+mainFrame.Active = true
+mainFrame.Parent = mainGui
+local corner = Instance.new("UICorner", mainFrame)
+corner.CornerRadius = UDim.new(0,20)
+
+local shadow = Instance.new("Frame")
+shadow.Size = UDim2.new(1,8,1,8)
+shadow.Position = UDim2.new(0,-4,0,-4)
+shadow.BackgroundColor3 = Color3.fromRGB(0,0,0)
+shadow.BackgroundTransparency = 0.6
+shadow.BorderSizePixel = 0
+shadow.ZIndex = -1
+shadow.Parent = mainFrame
+local shadowCorner = Instance.new("UICorner", shadow)
+shadowCorner.CornerRadius = UDim.new(0,20)
+
+local dragging, dragInput, dragStart, startPos
+mainFrame.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = mainFrame.Position
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then dragging = false end
+        end)
+    end
+end)
+mainFrame.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
+end)
+UserInputService.InputChanged:Connect(function(input)
+    if input == dragInput and dragging and dragStart and startPos then
+        local delta = input.Position - dragStart
+        mainFrame.Position = UDim2.new(
+            startPos.X.Scale, startPos.X.Offset + delta.X,
+            startPos.Y.Scale, startPos.Y.Offset + delta.Y
+        )
+    end
+end)
+
+-- Title Here!
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1,0,0,36)
+title.Position = UDim2.new(0,0,0,0)
+title.BackgroundTransparency = 1
+title.Text = "QuickExec"
+title.Font = Enum.Font.FredokaOne
+title.TextSize = 16
+title.TextColor3 = Color3.fromRGB(255,255,255)
+title.TextWrapped = true
+title.Parent = mainFrame
+
+local scroll = Instance.new("ScrollingFrame")
+scroll.Size = UDim2.new(1,0,1,-36)
+scroll.Position = UDim2.new(0,0,0,36)
+scroll.BackgroundTransparency = 1
+scroll.BorderSizePixel = 0
+scroll.CanvasSize = UDim2.new(0,0,#scriptsList*50)
+scroll.ScrollBarThickness = 6
+scroll.Parent = mainFrame
+
+local uiList = Instance.new("UIListLayout")
+uiList.Padding = UDim.new(0,12)
+uiList.FillDirection = Enum.FillDirection.Vertical
+uiList.SortOrder = Enum.SortOrder.LayoutOrder
+uiList.HorizontalAlignment = Enum.HorizontalAlignment.Center
+uiList.Parent = scroll
+
+-- Click sound here
+local clickSound = Instance.new("Sound", mainGui)
+clickSound.SoundId = "rbxassetid://6895079853"
+clickSound.Volume = 0.6
+
+-- Button scaling function
+local function scaleButton(btn, scaleUp)
+    local tween = TweenService:Create(btn, TweenInfo.new(0.1), {Size = scaleUp and UDim2.new(1,-30,0,48) or UDim2.new(1,-40,0,40)})
+    tween:Play()
+end
+
+for _, v in ipairs(scriptsList) do
+    local btn = Instance.new("TextButton")
+    btn.Size = UDim2.new(1,-40,0,40)
+    btn.BackgroundColor3 = Color3.fromRGB(40,40,40)
+    btn.TextColor3 = Color3.fromRGB(255,255,255)
+    btn.Text = v.name
+    btn.Font = Enum.Font.FredokaOne
+    btn.TextSize = 16
+    btn.Parent = scroll
+    btn.AutoButtonColor = false
+    Instance.new("UICorner", btn).CornerRadius = UDim.new(0,12)
+
+    btn.MouseEnter:Connect(function()
+        TweenService:Create(btn, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(60,60,60)}):Play()
+    end)
+    btn.MouseLeave:Connect(function()
+        TweenService:Create(btn, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(40,40,40)}):Play()
+    end)
+
+    local holding = false
+    btn.MouseButton1Down:Connect(function()
+        holding = true
+        scaleButton(btn,true)
+    end)
+    btn.MouseButton1Up:Connect(function()
+        holding = false
+        scaleButton(btn,false)
+    end)
+    btn.MouseLeave:Connect(function()
+        if holding then
+            holding = false
+            scaleButton(btn,false)
+        end
+    end)
+
+    btn.MouseButton1Click:Connect(function()
+        clickSound:Play()
+        if v.destroy then
+            mainGui:Destroy()
+            flashGui:Destroy()
+        end
+        pcall(function()
+            loadstring(game:HttpGet(v.url,true))()
+        end)
+        playFlash(Color3.fromRGB(0,255,0))
+    end)
+end
