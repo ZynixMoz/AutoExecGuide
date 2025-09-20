@@ -9,9 +9,11 @@
 </head>
 <body>
 
+<!-- PARTICLES -->
 <div id="particles-js"></div>
 
 <header>
+  <img src="images/logo.png" alt="QuickExc Logo" style="max-width:100%; height:auto; display:block; margin:0 auto 1rem;">
   <h1>QuickExc Customization</h1>
   <p>Guide to modify your QuickExc Roblox executor</p>
 </header>
@@ -39,10 +41,9 @@
   </div>
 
   <div class="card">
-    <h2>Edit QuickExecute File Name</h2>
-    <p>Change the file name in your executor script here:</p>
-    <pre id="fileNameCode">QuickExc.txt / QuickExc.lua</pre>
-    <button class="copy-btn" data-target="fileNameCode">Copy Info</button>
+    <h2>Download QuickExec Script</h2>
+    <p>Click the button below to download your QuickExec script:</p>
+    <a href="files/quickexec.txt" download class="copy-btn">Get Script</a>
   </div>
 </main>
 
@@ -50,22 +51,24 @@
   <p>&copy; 2025 SkyeMoz. QuickExc Customization Guide.</p>
 </footer>
 
+<!-- PARTICLES.JS -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src="script.js"></script>
 <script>
-  particlesJS("particles-js", {
-    "particles": {
-      "number": { "value": 80 },
-      "color": { "value": "#888" },
-      "shape": { "type": "circle" },
-      "opacity": { "value": 0.5 },
-      "size": { "value": 3 },
-      "line_linked": { "enable": true, "distance": 150, "color": "#555", "opacity": 0.4, "width": 1 },
-      "move": { "enable": true, "speed": 2 }
-    },
-    "interactivity": { "events": { "onhover": { "enable": true, "mode": "grab" } } },
-    "retina_detect": true
-  });
+particlesJS("particles-js", {
+  "particles": {
+    "number": { "value": 80 },
+    "color": { "value": "#888" },
+    "shape": { "type": "circle" },
+    "opacity": { "value": 0.5 },
+    "size": { "value": 3 },
+    "line_linked": { "enable": true, "distance": 150, "color": "#555", "opacity": 0.4, "width": 1 },
+    "move": { "enable": true, "speed": 2 }
+  },
+  "interactivity": { "events": { "onhover": { "enable": true, "mode": "grab" } } },
+  "retina_detect": true
+});
 </script>
+
 </body>
 </html>
