@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickExc Guide</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>QuickExc Script Guide</h1>
+    <p>Learn how to use and customize the QuickExc executor GUI for Roblox scripts.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Step 1: Download the Script</h2>
+      <p>Save the QuickExc script as <code>QuickExc.txt</code> or <code>QuickExc.lua</code> and keep it ready to load in your Roblox executor.</p>
+      <img src="images/script-file.png" alt="Script file example">
+    </section>
+
+    <section>
+      <h2>Step 2: Open Roblox Executor</h2>
+      <p>Open your Roblox script executor (Delta / Synapse / etc.), then use the "Load File" or "Execute Script" option to run QuickExc.</p>
+      <img src="images/executor.png" alt="Executor example">
+    </section>
+
+    <section>
+      <h2>Step 3: Using QuickExc GUI</h2>
+      <ul>
+        <li>Drag the GUI anywhere on your screen.</li>
+        <li>Hover over buttons to see hover animation.</li>
+        <li>Click a button to execute a script. Buttons with <code>destroy=true</code> will close the GUI after execution.</li>
+        <li>Holding a button scales it up until released.</li>
+        <li>The flash effect will briefly show when executing a script.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Customization Guide</h2>
+      <h3>1️⃣ Adding New Buttons</h3>
+      <p>Open the QuickExc script and find the <code>scriptsList</code> table. Each entry is a button:</p>
+      <pre>
+{name = "Voidware Hub", url = "https://raw.githubusercontent.com/VapeVoidware/VW-Add/main/nightsintheforest.lua", destroy = true}
+      </pre>
+      <p>To add a new button, just add another entry with the same format:</p>
+      <pre>
+{name = "New Script", url = "https://raw.githubusercontent.com/YourUsername/YourScript/main/newscript.lua", destroy = false}
+      </pre>
+
+      <h3>2️⃣ Changing Button Sounds</h3>
+      <p>Look for the click sound section:</p>
+      <pre>
+local clickSound = Instance.new("Sound", mainGui)
+clickSound.SoundId = "rbxassetid://3774415505"
+clickSound.Volume = 0.6
+      </pre>
+      <p>Change <code>SoundId</code> to any Roblox audio asset you like.</p>
+
+      <h3>3️⃣ Editing Titles / Guide Text</h3>
+      <p>The top label is here:</p>
+      <pre>
+local title = Instance.new("TextLabel")
+title.Text = "Use buttons below to execute scripts:"
+      </pre>
+      <p>You can replace the text with any instructions, guides, or notes.</p>
+
+      <h3>4️⃣ Changing Button Colors / Fonts</h3>
+      <p>Each button is defined like this:</p>
+      <pre>
+btn.BackgroundColor3 = Color3.fromRGB(40,40,40)
+btn.TextColor3 = Color3.fromRGB(255,255,255)
+btn.Font = Enum.Font.FredokaOne
+      </pre>
+      <p>You can change <code>BackgroundColor3</code>, <code>TextColor3</code>, and <code>Font</code> to customize appearance.</p>
+
+      <h3>5️⃣ Destroy GUI Option</h3>
+      <p>Buttons have a <code>destroy</code> property:</p>
+      <ul>
+        <li><code>destroy = true</code> → GUI closes after executing the script</li>
+        <li><code>destroy = false</code> → GUI stays open</li>
+      </ul>
+
+      <h3>6️⃣ Scaling / Hold Effects</h3>
+      <p>The GUI includes a scale animation on buttons:</p>
+      <ul>
+        <li>Click → button quickly scales up then back.</li>
+        <li>Hold → button scales up and stays scaled until released.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Tips & Tricks</h2>
+      <ul>
+        <li>Always save a backup of your QuickExc script before modifying it.</li>
+        <li>You can add unlimited buttons — the scroll frame will adjust automatically.</li>
+        <li>Use meaningful names for buttons to easily identify scripts.</li>
+        <li>Change the flash color in the code for different visual effects.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 SkyeMoz. QuickExc Guides.</p>
+  </footer>
+</body>
+                                                                         </html>
