@@ -14,27 +14,55 @@
 
 <header>
   <img src="images/logo.png" alt="QuickExc Logo" style="max-width:100%; height:auto; display:block; margin:0 auto 1rem;">
-  <h1>QuickExc Customization</h1>
-  <p>Guide to modify your QuickExc Roblox executor</p>
+  <h1>QuickExc Tools</h1>
+  <p>Access QuickExc external tools & editors</p>
 </header>
 
 <main>
   <div class="card">
-    <h2>Change the GUI Title</h2>
-    <p>Edit this line in your script to change the title of the executor:</p>
-    <pre id="titleCode">title.Text = "QuickExec"</pre>
-    <button class="copy-btn" data-target="titleCode">Copy Code</button>
+    <h2>Loadstring Editor</h2>
+    <p>Edit, test, and manage your loadstrings.</p>
+    <button class="start-btn" onclick="window.location.href='https://tool-box-hub.vercel.app/'">Start</button>
   </div>
 
   <div class="card">
-    <h2>Add More Buttons</h2>
-    <p>Insert a new table entry in <code>scriptsList</code> to add a button:</p>
-    <pre id="addButtonCode">{name = "New Script", url = "https://raw.githubusercontent.com/YourUsername/YourScript/main/newscript.lua", destroy = false}</pre>
-    <button class="copy-btn" data-target="addButtonCode">Copy Code</button>
+    <h2>Coming Soon Tool #1</h2>
+    <p>This feature is under development and will be available soon.</p>
+    <button class="start-btn disabled" disabled>Coming Soon</button>
   </div>
 
   <div class="card">
-    <h2>Change Click Sounds</h2>
+    <h2>Coming Soon Tool #2</h2>
+    <p>This feature is under development and will be available soon.</p>
+    <button class="start-btn disabled" disabled>Coming Soon</button>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 SkyeMoz. QuickExc Tools Hub.</p>
+</footer>
+
+<!-- PARTICLES.JS -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="script.js"></script>
+<script>
+particlesJS("particles-js", {
+  "particles": {
+    "number": { "value": 80 },
+    "color": { "value": "#888" },
+    "shape": { "type": "circle" },
+    "opacity": { "value": 0.5 },
+    "size": { "value": 3 },
+    "line_linked": { "enable": true, "distance": 150, "color": "#555", "opacity": 0.4, "width": 1 },
+    "move": { "enable": true, "speed": 2 }
+  },
+  "interactivity": { "events": { "onhover": { "enable": true, "mode": "grab" } } },
+  "retina_detect": true
+});
+</script>
+
+</body>
+</html>    <h2>Change Click Sounds</h2>
     <p>Modify this line to use a different sound for button clicks:</p>
     <pre id="clickSoundCode">clickSound.SoundId = "rbxassetid://6895079853"</pre>
     <button class="copy-btn" data-target="clickSoundCode">Copy Code</button>
